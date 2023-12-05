@@ -74,18 +74,32 @@ app.post("/sumWithMultipleValue", (req, res) => {
   res.json({ Result: list });
 });
 
-// app.post("/sumWithMultipleValue", (req, res) => {
-//   const request = req.body;
-//   const num = request.number;
-//   var x = [];
-//   let y = 0;
-//   for (let i = 1; i <= num; i++) {
-//     y += i;
-//     x.push({ num: i, sum: y });
-//     console.log(x);
-//   }
-//   res.json({ List: x });
-// });
+app.post("/MultipleValue", (req, res) => {
+  const request = req.body;
+  const num = request.number;
+  var x = [];
+  let y = 0;
+  for (let i = 1; i <= num; i++) {
+    y += i;
+    x.push({ num: i, sum: y });
+    console.log(x);
+  }
+  res.json({ List: x });
+});
+
+// สูครคูณ
+app.post("/multiplication", (req, res) => {
+  const request = req.body;
+  const nums = request.number;
+  var list = [];
+  for (let i = 1; i <= nums; i++) {
+    for (let j = 1; j <= nums; j++) {
+      list.push(`${i} * ${j} = ${i * j}`);
+    }
+    list.push(`__________________________________________________`);
+  }
+  res.json(list);
+});
 
 //บวกทุกตัวยกเว้น 2 ตัวท้าย
 app.post("/sumation", (req, res) => {
